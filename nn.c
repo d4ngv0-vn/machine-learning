@@ -171,9 +171,11 @@ int main(void) {
 
 
     printf("cost = %f\n", cost(m, ti, to));
-    finite_diff(m, g, eps, ti, to);
-    xor_learn(m, g, rate);
-    printf("cost = %f\n", cost(m, ti, to));
+    for (size_t i = 0; i < 100; ++i) {
+        finite_diff(m, g, eps, ti, to);
+        xor_learn(m, g, rate);
+        printf("cost = %f\n", cost(m, ti, to));
+    }
 
     #if 0
     for (size_t i = 0; i < 2; ++i) {
